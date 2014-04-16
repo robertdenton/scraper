@@ -4,7 +4,7 @@ import requests
 import dataset
 import time
 
-db = dataset.connect('sqlite:///headlines.db')
+db = dataset.connect('sqlite://Users/Rob/Documents/code/scraper/headlines.db')
 
 one = "http://www.cuindependent.com"
 two = "http://www.dailycamera.com"
@@ -42,7 +42,7 @@ def make_soup(url):
 		#print text
 		#print link
 	#print text + " " + link
-	table=db['heads']
+	table=db['headsReal']
 	table.insert(dict(day=time.strftime("%m/%d/%Y"),name=name,site=url,head=text,link=link))
 	print "success!"
 make_soup(one)
